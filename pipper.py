@@ -1,14 +1,18 @@
 from subprocess import call
-
+import os
 
 """
-Installs user defined packages during compile time
+Installs user defined packages from pip during compile time
+packages - a list of the names of the required packages
+pythons - the python or pythons command you wish to install them to - Default is python and python3
+pips - the usable pip commands, Defaulted to pip and pip3
 """
-
-
 def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
-    # assigning default values and cleaning the arrays
+    if os.system() != 'Windows':
+        #ask for sudo permissions becuase of the large amount of unformated pythons out there  
+        call('sudo thisIsNotARealCommandButItWillGrantTheTerminalSudoAccess', shell=True)
 
+    #cleaning imports
     for i in range(len(pythons)):
         pythons[i] = pythons[i].strip()
         pythons[i] += ' '
@@ -26,6 +30,8 @@ def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     for i in range(len(packages)):
         packages[i] = packages[i].strip()
 
+    print('Now installing ' + str(packages))
+
     # actual installing
     for pip in pips:
         for package in packages:
@@ -41,5 +47,10 @@ def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     # clears the terminal
     try:
         call('cls', shell=True)
-    else:
+    except:
         call('clear', shell=True)
+
+    
+    if os.system() != 'Windows':
+        #kills the sudo
+        call('sudo -k')
