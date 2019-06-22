@@ -2,12 +2,17 @@ from subprocess import call
 
 
 """
-Installs user defined packages during compile time
+Installs user defined packages from pip during compile time
+packages - a list of the names of the required packages
+pythons - the python or pythons command you wish to install them to - Default is python and python3
+pips - the usable pip commands, Defaulted to pip and pip3
 """
 
 
 def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     # assigning default values and cleaning the arrays
+
+    print('Now installing ' + str(packages))
 
     for i in range(len(pythons)):
         pythons[i] = pythons[i].strip()

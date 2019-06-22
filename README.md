@@ -1,13 +1,15 @@
-#Pip_Installation_Script
+# Pip_Installation_Script
 A python script to handle pip installs during compile time
 
+<s>
 ## Installation [Coming Soon]
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pip_installer.
 
 ```bash
 pip install pip_installer
 ```
+</s>
 
 ## Usage
 
@@ -17,6 +19,8 @@ try:
     import packagex # this is not a real package
 except
     install(packages = ['packagex', 'packagey'], pythons = ['python', 'python3'], pips = ['pip', 'pip3'])
+    import packagex
+    import packagey
 ```
 
 ### Params
