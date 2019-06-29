@@ -7,22 +7,22 @@ packages - a list of the names of the required packages
 pythons - the python or pythons command you wish to install them to - Default is python and python3
 pips - the usable pip commands, Defaulted to pip and pip3
 """
-def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
+def installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     if os.system() != 'Windows':
-        #ask for sudo permissions becuase of the large amount of unformated pythons out there  
-        call('sudo thisIsNotARealCommandButItWillGrantTheTerminalSudoAccess', shell=True)
+        linux_unix_installer(packages, pythons, pips)
+    else:
+        windows_installer(packages, pythons, pips)
 
-<<<<<<< HEAD:pipper.py
+        
+
+
+def windows_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     #cleaning imports
-=======
-    print('Now installing ' + str(packages))
-
->>>>>>> master:pip_installer.py
     for i in range(len(pythons)):
         pythons[i] = pythons[i].strip()
         pythons[i] += ' '
         if '-m' not in pythons[i]:
-            pythons[i] += ' -m '
+            pythons[i] += '-m '
 
     for i in range(len(pips)):
         pips[i] = pips[i].strip()
@@ -31,7 +31,6 @@ def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
         else:
             pips[i] += ' '
 
-    # handles
     for i in range(len(packages)):
         packages[i] = packages[i].strip()
 
@@ -55,7 +54,41 @@ def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     except:
         call('clear', shell=True)
 
+
+def linux_unix_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
+    #ask for sudo permissions becuase of the large amount of unformated pythons out there  
+    call('sudo thisIsNotARealCommandButItWillGrantTheTerminalSudoAccess', shell=True)
+
+    #cleaning imports
+    for i in range(len(pythons)):
+        pythons[i] = pythons[i].strip()
+        pythons[i] += ' '
+        if '-m' not in pythons[i]:
+            pythons[i] += '-m '
+
+    for i in range(len(pips)):
+        pips[i] = pips[i].strip()
+        if 'install' not in pips[i]:
+            pips[i] += ' install '
+        else:
+            pips[i] += ' '
+
+    # actual installing
+    for pip in pips:
+        for package in packages:
+            try:
+                call('sudo ' + pip + package, shell=True)
+            except:
+                for python in pythons:
+                    try:
+                        call('sudo ' + python + pip + package, shell=True)
+                    except:
+                        None
     
-    if os.system() != 'Windows':
-        #kills the sudo
-        call('sudo -k')
+    # kills sudo 
+    call('sudo -k')
+    # clears the terminal
+    try:
+        call('cls', shell=True)
+    except:
+        call('clear', shell=True)
