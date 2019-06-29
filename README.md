@@ -4,7 +4,11 @@ A python script to handle pip installs during compile time
 <s>
 ## Installation [Coming Soon]
 
+<<<<<<< HEAD
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pipper.
+=======
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pip_installer.
+>>>>>>> master
 
 ```bash
 pip install pipper

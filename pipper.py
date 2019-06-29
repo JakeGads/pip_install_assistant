@@ -12,7 +12,12 @@ def install(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
         #ask for sudo permissions becuase of the large amount of unformated pythons out there  
         call('sudo thisIsNotARealCommandButItWillGrantTheTerminalSudoAccess', shell=True)
 
+<<<<<<< HEAD:pipper.py
     #cleaning imports
+=======
+    print('Now installing ' + str(packages))
+
+>>>>>>> master:pip_installer.py
     for i in range(len(pythons)):
         pythons[i] = pythons[i].strip()
         pythons[i] += ' '
