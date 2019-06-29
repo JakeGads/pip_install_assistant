@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 from subprocess import call
 import os
 
@@ -32,8 +32,6 @@ def windows_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip
 
     for i in range(len(packages)):
         packages[i] = packages[i].strip()
-
-    print('Now installing ' + str(packages))
 
     # actual installing
     for pip in pips:
