@@ -7,17 +7,17 @@ packages - a list of the names of the required packages
 pythons - the python or pythons command you wish to install them to - Default is python and python3
 pips - the usable pip commands, Defaulted to pip and pip3
 """
+
+
 def installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     if os.system() != 'Windows':
         linux_unix_installer(packages, pythons, pips)
     else:
         windows_installer(packages, pythons, pips)
 
-        
-
 
 def windows_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
-    #cleaning imports
+    # cleaning imports
     for i in range(len(pythons)):
         pythons[i] = pythons[i].strip()
         pythons[i] += ' '
@@ -56,10 +56,10 @@ def windows_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip
 
 
 def linux_unix_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
-    #ask for sudo permissions becuase of the large amount of unformated pythons out there  
+    # ask for sudo permissions becuase of the large amount of unformated pythons out there
     call('sudo thisIsNotARealCommandButItWillGrantTheTerminalSudoAccess', shell=True)
 
-    #cleaning imports
+    # cleaning imports
     for i in range(len(pythons)):
         pythons[i] = pythons[i].strip()
         pythons[i] += ' '
@@ -84,8 +84,8 @@ def linux_unix_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', '
                         call('sudo ' + python + pip + package, shell=True)
                     except:
                         None
-    
-    # kills sudo 
+
+    # kills sudo
     call('sudo -k')
     # clears the terminal
     try:
