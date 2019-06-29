@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from subprocess import call
 import os
 
@@ -7,8 +8,6 @@ packages - a list of the names of the required packages
 pythons - the python or pythons command you wish to install them to - Default is python and python3
 pips - the usable pip commands, Defaulted to pip and pip3
 """
-
-
 def installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
     if os.system() != 'Windows':
         linux_unix_installer(packages, pythons, pips)
@@ -72,6 +71,9 @@ def linux_unix_installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', '
             pips[i] += ' install '
         else:
             pips[i] += ' '
+
+    for i in range(len(packages)):
+        packages[i] = packages[i].strip()
 
     # actual installing
     for pip in pips:
