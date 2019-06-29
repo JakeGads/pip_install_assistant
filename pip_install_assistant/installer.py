@@ -1,6 +1,5 @@
-
 from subprocess import call
-import os
+from os import system
 
 """
 Installs user defined packages from pip during compile time
@@ -9,7 +8,7 @@ pythons - the python or pythons command you wish to install them to - Default is
 pips - the usable pip commands, Defaulted to pip and pip3
 """
 def installer(packages, pythons=['python3 ', 'py3 '], pips=['pip ', 'pip3 ']):
-    if os.system() != 'Windows':
+    if system() != 'Windows':
         linux_unix_installer(packages, pythons, pips)
     else:
         windows_installer(packages, pythons, pips)
