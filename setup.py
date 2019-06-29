@@ -11,7 +11,7 @@ setup(
   name = 'pip_install_assistant',
   packages = ['pip_install_assistant'],
   install_requires = ['pip_install_assistant'],
-  version = '0.1.0',
+  version = '0.1.1',
   license='MIT',
   description = 'Installs pip packages at runtime',
   long_description=long_description,
