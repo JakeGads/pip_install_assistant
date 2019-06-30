@@ -11,7 +11,7 @@ setup(
   name = 'pip_install_assistant',
   packages = ['pip_install_assistant'],
   install_requires = ['pip_install_assistant'],
-  version = '0.1.1',
+  version = '0.2',
   license='MIT',
   description = 'Installs pip packages at runtime',
   long_description=long_description,
@@ -19,7 +19,7 @@ setup(
   author = 'Jake Gadaleta',
   author_email = 'jake.gads@gmail.com',
   url = 'https://github.com/gadzygadz/pip_install_assistant',
-  download_url = 'https://github.com/gadzygadz/pip_install_assistant/archive/v01.tar.gz',
+  download_url = 'https://github.com/gadzygadz/pip_install_assistant/archive/v0.1.2.tar.gz',
   keywords = ['pip', 'installer'],
   
   classifiers=[  
